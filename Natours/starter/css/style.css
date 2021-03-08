@@ -116,7 +116,7 @@ body {
   }
 }
 
-@keyframes moveInDown {
+@keyframes moveInBottom {
   0% {
     opacity: 0;
     transform: translateY(100px);
@@ -153,7 +153,7 @@ btn:visited {
   display: inline-block;
   border-radius: 100px;
   transition: all 0.2s;
-  animation: moveInDown 1s ease-out;
+
   position: relative;
 }
 .btn:hover {
@@ -180,13 +180,18 @@ btn:visited {
   top: 0;
   left: 0;
   z-index: -1;
-  transition: all 0.2s;
+  transition: all 0.4s;
 }
 .btn:hover::after {
-  transform: scale(2);
+  transform: scaleX(1.4) scaleY(1.6);
   opacity: 0;
 }
 .btn-white::after {
   background-color: #fff;
   color: #777;
+}
+
+.btn-animated {
+  animation: moveInBottom 1s ease-out 0.75s;
+  animation-fill-mode: backwards;
 }
