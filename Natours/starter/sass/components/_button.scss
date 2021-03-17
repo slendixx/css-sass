@@ -6,7 +6,7 @@
     padding: 1.5rem 4rem;
     display: inline-block;
     border-radius: 10rem;
-    transition: all $animation-duration-short;
+    transition: all $transition-duration-short;
     font-size: $default-font-size;
     position: relative;
   }
@@ -30,7 +30,15 @@
 
     &::after {
       background-color: $color-white;
-      color: $color-grey-dark;
+    }
+  }
+
+  &--green {
+    background-color: $color-primary;
+    color: $color-white;
+
+    &::after {
+      background-color: $color-primary;
     }
   }
 
@@ -63,7 +71,7 @@
     border-bottom: 1px solid $color-primary;
     padding: 0.3rem;
     font-size: $default-font-size;
-    transition: all $animation-duration-short;
+    transition: all $transition-duration-short;
   }
   &:hover {
     color: $color-white;
