@@ -1,0 +1,40 @@
+.story {
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
+  background-color: $color-white;
+  border-radius: 0.3rem;
+  padding: 6rem;
+  padding-left: 9rem;
+  font-size: $default-font-size;
+  transform: skewX(-12deg);
+
+  // We cannot use this direct children selector to correct the content skewing
+  // because the shape already has a transform property applied to it. only one transform
+  // property may be applied, and this would overwrite the one on the shape.
+  // & > *{
+  // 	transform: skewX(12deg);
+  // }
+
+  &__shape {
+    width: 15rem;
+    height: 15rem;
+    float: left;
+    background-color: teal;
+    shape-outside: circle(50% at 50% 50%);
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    -webkit-clip-path: circle(50% at 50% 50%);
+    transform: translateX(-3rem) skewX(12deg);
+
+    // shape-outside: polygon(50% 0, 100% 45%, 80% 100%, 20% 100%, 0 45%);
+    // clip-path: polygon(50% 0, 100% 45%, 80% 100%, 20% 100%, 0 45%);
+  }
+  &__image {
+    height: 100%;
+    transform: skewX(12deg);
+  }
+  &__text {
+    transform: skewX(12deg);
+  }
+}
