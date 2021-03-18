@@ -34,11 +34,19 @@
   }
 
   &--green {
-    background-color: $color-primary;
+    background-image: linear-gradient(
+      to right,
+      $color-primary-light,
+      $color-primary-dark
+    );
     color: $color-white;
 
     &::after {
-      background-color: $color-primary;
+      background-image: linear-gradient(
+        to right,
+        $color-primary-light,
+        $color-primary-dark
+      );
     }
   }
 
@@ -75,7 +83,11 @@
   }
   &:hover {
     color: $color-white;
-    background-color: $color-primary;
+    background-image: linear-gradient(
+      to right,
+      $color-primary-light,
+      $color-primary-dark
+    );
     box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
     transform: translateY(-0.3rem);
   }
