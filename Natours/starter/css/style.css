@@ -1,3 +1,25 @@
+/*
+0 - 600px: PHONES
+600px - 900px: Tablets in portrait mode
+900px - 1200px: Tablets in landscape mode
+1200px - 1800px: Normal styles -> desktop first approach
+1800px+ big desktop
+*/
+/*
+Basic usage of mixins for writing media queries
+@mixin respond-phone {
+  @media (max-width: 600px) {
+    @content;
+  }
+}
+*/
+/*
+$breakpoint argument choices:
+phone
+tabPort
+tabLand
+bigDesk
+*/
 /* Simple global style reset using universal selector */
 *,
 *::before,
@@ -9,7 +31,22 @@
 html {
   /* root font-size. 1 rem */
   font-size: 62.5%;
-  /* now 1rem = 10px */ }
+  /* now 1rem == 10px */ }
+  @media (max-width: 600px) {
+    html {
+      font-size: 50%; } }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media (min-width: 112.5em) {
+    html {
+      /*
+      These desktop screen sizes are bigger than our target screen width range. That's why we write a min-width media query for them.
+      */
+      font-size: 75%; } }
 
 body {
   box-sizing: border-box; }

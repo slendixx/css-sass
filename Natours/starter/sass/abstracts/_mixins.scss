@@ -5,3 +5,58 @@
     clear: both;
   }
 }
+
+//MEDIA QUERY MANAGER
+/*
+0 - 600px: PHONES
+600px - 900px: Tablets in portrait mode
+900px - 1200px: Tablets in landscape mode
+1200px - 1800px: Normal styles -> desktop first approach
+1800px+ big desktop
+*/
+
+/*
+Basic usage of mixins for writing media queries
+@mixin respond-phone {
+  @media (max-width: 600px) {
+    @content;
+  }
+}
+*/
+
+/*
+$breakpoint argument choices:
+phone
+tabPort
+tabLand
+bigDesk
+*/
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    //600px / 16px = 37.5em | with 16px being the web browser default root font size
+    @media (max-width: 37.5em) {
+      @content;
+    }
+  }
+  //900px / 16px = 56.25em
+  @if $breakpoint == tabPort {
+    @media (max-width: 56.25em) {
+      @content;
+    }
+  }
+  //1200px
+  @if $breakpoint == tabLand {
+    @media (max-width: 75em) {
+      @content;
+    }
+  }
+  //1800px
+  @if $breakpoint == bigDesk {
+    @media (min-width: 112.5em) {
+      /*
+      These desktop screen sizes are bigger than our target screen width range. That's why we write a min-width media query for them.
+      */
+      @content;
+    }
+  }
+}
