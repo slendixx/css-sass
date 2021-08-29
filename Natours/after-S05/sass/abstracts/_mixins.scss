@@ -1,14 +1,68 @@
 @mixin clearfix {
-    &::after {
-        content: "";
-        display: table;
-        clear: both;
-    }
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 }
 
 @mixin absCenter {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// Media Query manager
+/*
+    BREAKPOINTS:
+    0 - 600px Phone
+    600 - 900px Tablet Portrait
+    900 - 1200px Tablet Landscape
+    1200 - 1800px Desktop <- our approach
+    1800px... big-desktop
+
+
+
+if we weren't writing a media query manager, we would have to write something like this for each breakpoint:
+@mixin respond-phone {
+  @media (max-width: 600px) {
+    @content; //represents evertything passed to the mixin between curly braces after calling it
+  }
+}
+
+    $breakpoint argument choices:
+    - phone
+    - tab-port
+    - tab-land
+    - big-desktop
+
+    1em = 16px
+
+*/
+@mixin respond($breakpoint) {
+  @if ($breakpoint == phone) {
+    @media (max-width: (600px/16px)*1em) {
+      //37.5em
+      @content;
+    }
+  }
+  @if ($breakpoint == tab-port) {
+    @media (max-width: (900px/16px)*1em) {
+      //56.25em
+      @content;
+    }
+  }
+  @if ($breakpoint == tab-land) {
+    @media (max-width: (1200px/16px)*1em) {
+      //75em
+      @content;
+    }
+  }
+  @if ($breakpoint == big-desktop) {
+    @media (min-width: (1800px/16px)*1em) {
+      //112.5em
+      @content;
+    }
+  }
 }
