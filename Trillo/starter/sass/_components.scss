@@ -1,0 +1,104 @@
+.logo {
+  height: 3.25rem;
+  margin-left: 3rem;
+}
+.search {
+  display: flex; //make search a nested flex container to align icon along cross axis (vertically)
+  flex: 0 0 40%;
+  justify-content: center; //so the input stretches towards both sides along the main axi
+  align-items: center;
+
+  &__input {
+    font-family: inherit; //if an element doesn't want to inherit automatically, we'll force it to
+    font-size: inherit;
+    color: inherit;
+    background-color: var(--color-grey-light-2);
+    border: none;
+    padding: 0.7rem 2rem;
+    border-radius: 100rem;
+    width: 90%;
+
+    transition: all 0.2s;
+    margin-right: -3.5rem; //use negative margin value to have button on top of input
+
+    &:focus {
+      outline: none;
+      width: 100%;
+      background-color: var(--color-grey-light-3);
+    }
+
+    &::-webkit-input-placeholder {
+      font-weight: 100;
+      color: var(--color-grey-light-4);
+    }
+  }
+  &__input:focus + &__button {
+    //use adjacent sibling selector to darken button on input focus
+    background-color: var(--color-grey-light-3);
+  }
+
+  &__button {
+    border: none;
+    background-color: var(--color-grey-light-2);
+
+    &:focus {
+      outline: none;
+    }
+    &:active {
+      transform: translateY(2px);
+    }
+  }
+  &__icon {
+    height: 2rem;
+    width: 2rem;
+    fill: var(--color-grey-dark-3);
+  }
+}
+
+.user-nav {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+
+  & > * {
+    // "& > *" direct children selector, all (icon__boxes & user)
+    padding: 0 2rem;
+    cursor: pointer;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      background-color: var(--color-grey-light-2);
+    }
+  }
+
+  &__icon-box {
+  }
+  &__icon {
+    height: 2.25rem;
+    width: 2.25rem;
+    fill: var(--color-grey-dark-3);
+  }
+  &__notification {
+    font-size: 0.8rem;
+    height: 0.75rem;
+    width: 0.75rem;
+    padding: 0.75rem;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__user {
+  }
+  &__user-photo {
+    height: 3.75rem;
+    border-radius: 50%;
+  }
+  &__user-name {
+  }
+}
