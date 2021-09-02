@@ -182,8 +182,10 @@
 
 .gallery {
   display: flex;
+
   &__photo {
     width: 100%; //the <figure> elements are the flex items. that allows us to simply inherit 100% of their width
+    height: 100%;
   }
 }
 
@@ -191,12 +193,21 @@
 /////////////////////////////OVERVIEW///////////////////////////
 
 .overview {
+  border-bottom: var(--border-thin);
+
   display: flex;
+  align-items: center;
 
   &__heading {
+    font-size: 2.25rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 1.5rem 3rem;
   }
   &__stars {
     //flex: 1
+    display: flex; //set stars container to be flexbox so they align along the cross axis
     margin-right: auto;
   }
   &__icon-star,
@@ -205,12 +216,108 @@
     height: 1.75rem;
     fill: var(--color-primary);
   }
+  &__icon-location {
+    margin-right: 0.5rem;
+  }
+
   &__location {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
   }
   &__rating {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    margin-left: 3rem;
+    padding: 0 2.25rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-self: stretch;
   }
   &__rating-average {
+    font-size: 2.25rem;
+    font-weight: 300;
+    margin-bottom: -0.3rem;
   }
   &__rating-count {
   }
 }
+
+////////////////////////////////////////////////////////////////
+//////////////////////////BUTTON INLINE////////////////////////
+
+.btn-inline {
+  border: none;
+  color: var(--color-primary);
+  font-size: inherit;
+  background-color: transparent;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    color: var(--color-grey-dark-1);
+  }
+  &:focus {
+    outline: none;
+    animation: pulsate 1s infinite;
+  }
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.25);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+}
+
+////////////////////////////////////////////////////////////////
+////////////////////////////PARAGRAPH///////////////////////////
+
+.paragraph:not(:last-of-type) {
+  margin-bottom: 2rem;
+}
+////////////////////////////////////////////////////////////////
+///////////////////////////////LIST/////////////////////////////
+.list {
+  list-style: none;
+  margin: 3rem 0;
+  padding: 3rem 0;
+  border-top: var(--border-thin);
+  border-bottom: var(--border-thin);
+
+  display: flex;
+  flex-wrap: wrap;
+
+  &__item {
+    flex: 0 0 50%;
+    margin-bottom: 0.7rem;
+  }
+
+  &__item::before {
+    content: "";
+    display: inline-block;
+    height: 2rem;
+    width: 2rem;
+    margin-right: 0.7rem;
+    background-image: url(../img/chevron-thin-right.svg);
+  }
+}
+////////////////////////////////////////////////////////////////
+////////////////////////////RECOMMEND///////////////////////////
+
+////////////////////////////////////////////////////////////////
